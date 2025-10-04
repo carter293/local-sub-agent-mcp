@@ -1,12 +1,12 @@
 # Subagent MCP
 
-**Master Control Program for Delegating Specialized Research Tasks**
+**Specialized Research Agents for Codebase Analysis**
 
-Subagent MCP is an Express-based server that provides five specialized AI agents for deep codebase analysis and research. Each agent uses Google's Gemini AI with file system tools to perform focused tasks like locating files, analyzing implementations, finding patterns, and extracting insights from documentation.
+Subagent MCP is an MCP (Model Context Protocol) server that provides five specialized AI agents for deep codebase analysis and research. Each agent uses OpenAI's GPT models with file system tools to perform focused tasks like locating files, analyzing implementations, finding patterns, and extracting insights from documentation.
 
 ## 🎯 Project Overview
 
-This system acts as a "Master Control Program" that delegates research tasks to specialized sub-agents. Instead of using a single general-purpose AI for everything, you can route specific types of queries to expert agents optimized for that particular task.
+This MCP server provides specialized research agents that excel at different aspects of codebase analysis. Instead of using a single general-purpose AI for everything, you can route specific types of queries to expert agents optimized for that particular task. Each agent has been fine-tuned with specific prompts and tools to deliver focused, high-quality results for their domain of expertise.
 
 ### Five Specialized Agents
 
@@ -42,6 +42,24 @@ This system acts as a "Master Control Program" that delegates research tasks to 
 
 ## 🔧 Installation
 
+### Option 1: Install Globally (Recommended)
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd subagent
+
+# Install the package globally
+npm install -g .
+
+# Set up your OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+```
+
+This installs the `research-subagent-mcp` command globally, making it available for use in Cursor's MCP configuration.
+
+### Option 2: Local Development
+
 ```bash
 # Clone or navigate to the project
 cd subagent
@@ -52,26 +70,13 @@ npm install
 # Build the TypeScript project
 npm run build
 
-# Set up your Google AI API key
-export GOOGLE_GENERATIVE_AI_API_KEY="your-api-key-here"
+# Set up your OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
 ```
 
 ## 🚀 Usage
 
 This is an MCP (Model Context Protocol) server designed to be used with MCP clients like Cursor. It communicates via stdio and is not meant to be used as a standalone HTTP server.
-
-### Setup
-
-```bash
-# Install dependencies
-npm install
-
-# Build the TypeScript project
-npm run build
-
-# Set up your Google AI API key
-export GOOGLE_GENERATIVE_AI_API_KEY="your-api-key-here"
-```
 
 ### Testing the Server
 
@@ -105,6 +110,23 @@ npm run build
 
 Add this configuration to your Cursor settings (`~/.cursor/mcp.json` or via Settings → Features → MCP):
 
+#### Option 1: Using Global Installation (Recommended)
+
+```json
+{
+  "mcpServers": {
+    "research-subagent-mcp": {
+      "command": "research-subagent-mcp",
+      "env": {
+        "OPENAI_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Option 2: Using Local Installation
+
 ```json
 {
   "mcpServers": {
@@ -112,7 +134,7 @@ Add this configuration to your Cursor settings (`~/.cursor/mcp.json` or via Sett
       "command": "node",
       "args": ["/absolute/path/to/subagent/dist/index.js"],
       "env": {
-        "GOOGLE_GENERATIVE_AI_API_KEY": "your-api-key-here"
+        "OPENAI_API_KEY": "your-api-key-here"
       }
     }
   }
@@ -194,8 +216,7 @@ subagent/
 │   ├── tools/
 │   │   ├── fileSystemTools.ts  # File system tool implementations
 │   │   └── security.ts         # Path security utilities
-│   ├── index.ts              # Express server entry point
-│   └── routes.ts             # API route definitions
+│   └── index.ts              # MCP server entry point
 ├── agent-prompts/            # System prompts for each agent
 │   ├── codebase-analyzer.md
 │   ├── codebase-locator.md
@@ -245,11 +266,11 @@ Use thoughts_locator to find research documents about security in /Users/you/myp
 
 ## 🔑 Environment Variables
 
-- `GOOGLE_GENERATIVE_AI_API_KEY` - **Required** - Your Google AI API key for Gemini
+- `OPENAI_API_KEY` - **Required** - Your OpenAI API key for GPT models
 
 ## 🤖 AI Model
 
-Uses Google's **Gemini 2.0 Flash Experimental** (`gemini-2.0-flash-exp`) model for fast, cost-effective analysis with tool calling support.
+Uses OpenAI's **GPT-4o** model for fast, cost-effective analysis with tool calling support.
 
 ## 📝 License
 
@@ -263,6 +284,6 @@ This is a research/utility project. Feel free to fork and customize the agents a
 
 **Built with:**
 - [Vercel AI SDK](https://ai-sdk.dev/) - AI framework with tool calling
-- [Express](https://expressjs.com/) - Web server
-- [Gemini AI](https://ai.google.dev/) - Language model
+- [OpenAI](https://openai.com/) - Language model
+- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP server framework
 - [TypeScript](https://www.typescriptlang.org/) - Type-safe development
