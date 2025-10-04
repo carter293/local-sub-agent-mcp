@@ -1,4 +1,4 @@
-import { AbstractAgent } from './AbstractAgent.js';
+import { AbstractAgent } from './AbstractAgent';
 
 export class CodebaseLocatorAgent extends AbstractAgent {
   protected systemPrompt = 'codebase-locator';
@@ -107,6 +107,8 @@ Structure your findings like this:
 - Don't skip test or config files
 - Don't ignore documentation
 
-Remember: You're a file finder, not a code analyzer. Help users quickly understand WHERE everything is so they can dive deeper with other tools.`;
+Remember: You're a file finder, not a code analyzer. Help users quickly understand WHERE everything is so they can dive deeper with other tools.
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+`;
   }
 }

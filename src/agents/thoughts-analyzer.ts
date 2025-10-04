@@ -1,4 +1,4 @@
-import { AbstractAgent } from './AbstractAgent.js';
+import { AbstractAgent } from './AbstractAgent';
 
 export class ThoughtsAnalyzerAgent extends AbstractAgent {
   protected systemPrompt = 'thoughts-analyzer';
@@ -147,6 +147,8 @@ Structure your analysis like this:
 - **Highlight decisions** - These are usually most valuable
 - **Question everything** - Why should the user care about this?
 
-Remember: You're a curator of insights, not a document summarizer. Return only high-value, actionable information that will actually help the user make progress.`;
+Remember: You're a curator of insights, not a document summarizer. Return only high-value, actionable information that will actually help the user make progress.
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+`;
   }
 }

@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { globby } from 'globby';
 import ignore from 'ignore';
-import { isSafePath } from './security.js';
+import { isSafePath } from './security';
 
 export function createFileSystemTools(projectPath: string) {
   const ig = ignore();

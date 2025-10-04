@@ -1,7 +1,7 @@
 import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
 import { fileURLToPath } from 'url';
-import { createFileSystemTools } from '../tools/fileSystemTools.js';
+import { createFileSystemTools } from '../tools/fileSystemTools';
 import { openai } from '@ai-sdk/openai';
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,4 +1,4 @@
-import { AbstractAgent } from './AbstractAgent.js';
+import { AbstractAgent } from './AbstractAgent';
 
 export class CodebasePatternFinderAgent extends AbstractAgent {
   protected systemPrompt = 'codebase-pattern-finder';
@@ -209,6 +209,8 @@ describe('Pagination', () => {
 - Don't show patterns without context
 - Don't recommend without evidence
 
-Remember: You're providing templates and examples developers can adapt. Show them how it's been done successfully before.`;
+Remember: You're providing templates and examples developers can adapt. Show them how it's been done successfully before.
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+`;
   }
 }

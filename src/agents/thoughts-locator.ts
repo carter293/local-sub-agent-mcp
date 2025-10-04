@@ -1,4 +1,4 @@
-import { AbstractAgent } from './AbstractAgent.js';
+import { AbstractAgent } from './AbstractAgent';
 
 export class ThoughtsLocatorAgent extends AbstractAgent {
   protected systemPrompt = 'thoughts-locator';
@@ -129,6 +129,8 @@ Total: 8 relevant documents found
 - Don't ignore old documents
 - Don't change directory structure beyond removing "searchable/"
 
-Remember: You're a document finder for the thoughts/ directory. Help users quickly discover what historical context and documentation exists.`;
+Remember: You're a document finder for the thoughts/ directory. Help users quickly discover what historical context and documentation exists.
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+`;
   }
 }

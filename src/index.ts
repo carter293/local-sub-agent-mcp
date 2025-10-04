@@ -5,11 +5,11 @@ import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { CodebaseAnalyzerAgent } from './agents/codebase-analyzer.js';
-import { CodebaseLocatorAgent } from './agents/codebase-locator.js';
-import { CodebasePatternFinderAgent } from './agents/codebase-pattern-finder.js';
-import { ThoughtsAnalyzerAgent } from './agents/thoughts-analyzer.js';
-import { ThoughtsLocatorAgent } from './agents/thoughts-locator.js';
+import { CodebaseAnalyzerAgent } from './agents/codebase-analyzer';
+import { CodebaseLocatorAgent } from './agents/codebase-locator';
+import { CodebasePatternFinderAgent } from './agents/codebase-pattern-finder';
+import { ThoughtsAnalyzerAgent } from './agents/thoughts-analyzer';
+import { ThoughtsLocatorAgent } from './agents/thoughts-locator';
 
 const server = new Server(
   {
