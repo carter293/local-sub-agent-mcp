@@ -4,6 +4,9 @@
 
 Subagent MCP is an MCP (Model Context Protocol) server that provides five specialized AI agents for deep codebase analysis and research. Each agent uses OpenAI's GPT models with file system tools to perform focused tasks like locating files, analyzing implementations, finding patterns, and extracting insights from documentation.
 
+> **Inspired by HumanLayer's Advanced Context Engineering**  
+> This project implements the specialized agent patterns and context engineering principles from [Dexter Horthy's YC Root Access talk on Advanced Context Engineering for Agents](https://www.youtube.com/watch?v=IS_y40zY-hc). The agent designs and prompts are based on the groundbreaking work by [HumanLayer](https://github.com/humanlayer/humanlayer) in creating specialized AI agents for complex codebase analysis. All credit these guys, all this project is trying to do is replicate the use case on Cursor until sub agents are released.
+
 ## 🎯 Project Overview
 
 This MCP server provides specialized research agents that excel at different aspects of codebase analysis. Instead of using a single general-purpose AI for everything, you can route specific types of queries to expert agents optimized for that particular task. Each agent has been fine-tuned with specific prompts and tools to deliver focused, high-quality results for their domain of expertise.
