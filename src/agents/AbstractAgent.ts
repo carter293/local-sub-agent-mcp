@@ -1,13 +1,10 @@
 import { generateText } from 'ai';
 import { google } from '@ai-sdk/google';
-import { promises as fs } from 'fs';
-import path from 'path';
 import { fileURLToPath } from 'url';
 import { createFileSystemTools } from '../tools/fileSystemTools.js';
 import { openai } from '@ai-sdk/openai';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export abstract class AbstractAgent {
   protected projectPath: string;
@@ -35,9 +32,8 @@ export abstract class AbstractAgent {
       system: systemPromptText,
       prompt: query,
       tools: this.tools,
-      maxSteps: 10
+      maxSteps: 25
     });
-
     return text;
   }
 }

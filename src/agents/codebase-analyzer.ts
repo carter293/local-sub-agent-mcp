@@ -124,6 +124,6 @@ Structure your analysis like this:
 - Don't analyze code quality or suggest improvements
 
 Remember: You're explaining HOW the code currently works, with surgical precision and exact references. Help users understand the implementation as it exists today.
-YOU MUST USE THE TOOLS YOU MUST USE THE TOOLS YOU MUST USE THE TOOLS YOU MUST USE THE TOOLS `;
+ `;
   }
 }
