@@ -77,14 +77,17 @@ export function createFileSystemTools(projectPath: string) {
         directory: z.string().describe('The directory to list.'),
       }),
       execute: async ({ directory }) => {
+        console.error(`[DEBUG] LS called for directory: ${directory}`);
         const targetPath = path.join(projectPath, directory);
         if (!(await isSafePath(projectPath, targetPath))) {
+          console.error(`[DEBUG] LS Access denied for: ${directory} (resolved: ${targetPath})`);
           return { error: 'Access denied.' };
         }
         const entries = await fs.readdir(targetPath, { withFileTypes: true });
         const filteredEntries = entries
           .map(entry => entry.name)
           .filter(name => !ig.ignores(path.join(directory, name)));
+        console.error(`[DEBUG] LS found ${filteredEntries.length} entries in ${directory}`);
         return { files: filteredEntries }
       },
     }),
@@ -95,10 +98,12 @@ export function createFileSystemTools(projectPath: string) {
       }),
       execute: async ({ filePath }) => {
         if (ig.ignores(filePath)) {
+          console.error(`[DEBUG] READFILE Ignored by .gitignore: ${filePath}`);
           return { error: 'File is ignored by .gitignore.' };
         }
         const targetPath = path.join(projectPath, filePath);
         if (!(await isSafePath(projectPath, targetPath))) {
+          console.error(`[DEBUG] READFILE Access denied for: ${filePath} (resolved: ${targetPath})`);
           return { error: 'Access denied.' };
         }
         const content = await fs.readFile(targetPath, 'utf-8');
@@ -114,10 +119,12 @@ export function createFileSystemTools(projectPath: string) {
       }),
       execute: async ({ filePath, startLine, endLine }) => {
         if (ig.ignores(filePath)) {
+          console.error(`[DEBUG] READFILELINES Ignored by .gitignore: ${filePath}`);
           return { error: 'File is ignored by .gitignore.' };
         }
         const targetPath = path.join(projectPath, filePath);
         if (!(await isSafePath(projectPath, targetPath))) {
+          console.error(`[DEBUG] READFILELINES Access denied for: ${filePath} (resolved: ${targetPath})`);
           return { error: 'Access denied.' };
         }
         const content = await fs.readFile(targetPath, 'utf-8');
@@ -134,8 +141,10 @@ export function createFileSystemTools(projectPath: string) {
         filePattern: z.string().optional().describe('File pattern to filter (e.g., "*.ts").'),
       }),
       execute: async ({ pattern, directory = '.', filePattern = '**/*' }) => {
+        console.error(`[DEBUG] GREP called for pattern: "${pattern}" in directory: ${directory}`);
         const searchPath = path.join(projectPath, directory);
         if (!(await isSafePath(projectPath, searchPath))) {
+          console.error(`[DEBUG] GREP Access denied for directory: ${directory} (resolved: ${searchPath})`);
           return { error: 'Access denied.' };
         }
 
@@ -172,6 +181,7 @@ export function createFileSystemTools(projectPath: string) {
           }
         }
 
+        console.error(`[DEBUG] GREP found ${results.length} matches for "${pattern}" in ${directory}`);
         return { matches: results };
       },
     }),
@@ -182,8 +192,10 @@ export function createFileSystemTools(projectPath: string) {
         directory: z.string().optional().describe('The directory to search in (defaults to project root).'),
       }),
       execute: async ({ pattern, directory = '.' }) => {
+        console.error(`[DEBUG] GLOB called for pattern: "${pattern}" in directory: ${directory}`);
         const searchPath = path.join(projectPath, directory);
         if (!(await isSafePath(projectPath, searchPath))) {
+          console.error(`[DEBUG] GLOB Access denied for directory: ${directory} (resolved: ${searchPath})`);
           return { error: 'Access denied.' };
         }
 
@@ -198,6 +210,7 @@ export function createFileSystemTools(projectPath: string) {
           return !ig.ignores(relativePath);
         });
 
+        console.error(`[DEBUG] GLOB found ${filteredFiles.length} files matching "${pattern}" in ${directory}`);
         return { files: filteredFiles };
       },
     }),

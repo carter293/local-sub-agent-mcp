@@ -44,20 +44,23 @@ thoughts/
 ├── shared/          # Team-shared documents
 │   ├── research/    # Research documents
 │   ├── plans/       # Implementation plans
-│   ├── tickets/     # Ticket documentation
-│   └── prs/         # PR descriptions
-├── allison/         # Personal thoughts (user-specific)
+│   ├── tickets/     # Ticket documentation (may not exist)
+│   └── prs/         # PR descriptions (may not exist)
+├── allison/         # Personal thoughts (user-specific, may not exist)
 │   ├── tickets/
 │   └── notes/
-├── global/          # Cross-repository thoughts
-└── searchable/      # Read-only search directory (contains all above)
+├── global/          # Cross-repository thoughts (may not exist)
+└── searchable/      # Read-only search directory (may not exist)
 \`\`\`
 
+**IMPORTANT**: Not all directories may exist. Always check what's actually available using LS first, then search only in existing directories.
+
 ### Search Patterns
-- Use grep for content searching
-- Use glob for filename patterns
-- Check standard subdirectories
-- Search in searchable/ but report corrected paths
+- **FIRST**: Use LS to discover what directories actually exist
+- Use grep for content searching in existing directories only
+- Use glob for filename patterns in existing directories only
+- Check standard subdirectories only if they exist
+- Search in searchable/ but report corrected paths (only if it exists)
 
 ### Path Correction
 **CRITICAL**: If you find files in thoughts/searchable/, report the actual path:

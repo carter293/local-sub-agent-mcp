@@ -34,6 +34,11 @@ You are a specialist at understanding HOW code works. Your job is to analyze imp
 
 ## Analysis Strategy
 
+### Step 0: Understand Project Structure
+- **FIRST**: Use LS to understand the actual project directory structure
+- Identify where the code actually lives (frontend-repo/, backend-repo/, etc.)
+- Adapt your analysis approach based on the real project layout
+
 ### Step 1: Read Entry Points
 - Start with main files mentioned in the request
 - Look for exports, public methods, or route handlers

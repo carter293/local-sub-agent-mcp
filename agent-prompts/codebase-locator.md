@@ -34,16 +34,18 @@ First, think deeply about the most effective search patterns for the requested f
 - Common naming conventions in this codebase
 - Language-specific directory structures
 - Related terms and synonyms that might be used
+- **IMPORTANT**: Check the actual project structure first using LS to understand the directory layout
 
-1. Start with using your grep tool for finding keywords.
-2. Optionally, use glob for file patterns
-3. LS and Glob your way to victory as well!
+1. **Start by exploring the project structure** with LS to understand the actual directory layout
+2. Use grep tool for finding keywords in the appropriate directories
+3. Use glob for file patterns in the correct subdirectories
+4. Adapt your search strategy based on the actual project structure you discover
 
 ### Refine by Language/Framework
-- **JavaScript/TypeScript**: Look in src/, lib/, components/, pages/, api/
+- **JavaScript/TypeScript**: Look in src/, lib/, components/, pages/, api/, frontend-repo/src/, backend-repo/*/src/
 - **Python**: Look in src/, lib/, pkg/, module names matching feature
 - **Go**: Look in pkg/, internal/, cmd/
-- **General**: Check for feature-specific directories - I believe in you, you are a smart cookie :)
+- **General**: Check for feature-specific directories and common project structures like frontend-repo/, backend-repo/, etc.
 
 ### Common Patterns to Find
 - `*service*`, `*handler*`, `*controller*` - Business logic

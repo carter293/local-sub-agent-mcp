@@ -99,6 +99,91 @@ The server will communicate via stdio (standard input/output) following the MCP 
 
 Cursor can integrate with this MCP server to enhance its codebase understanding capabilities. Cursor will automatically spawn and manage the server process.
 
+### Cursor Slash Commands
+
+This repository includes three specialized slash commands that leverage the subagent MCP tools for advanced codebase research and planning:
+
+#### `/research_codebase`
+Comprehensive research across the codebase using parallel sub-agents to answer complex questions.
+
+**Usage:**
+```
+/research_codebase
+```
+
+**What it does:**
+- Spawns parallel sub-agents to research different aspects of your question
+- Uses specialized agents (codebase-locator, codebase-analyzer, codebase-pattern-finder, thoughts-locator, thoughts-analyzer)
+- Synthesizes findings from multiple sources
+- Generates detailed research documents in `thoughts/shared/research/`
+- Perfect for understanding complex systems, finding architectural patterns, or investigating bugs
+
+**Example:**
+```
+/research_codebase
+How does authentication work in this codebase?
+```
+
+#### `/create_plan`
+Creates detailed implementation plans through an interactive, iterative process.
+
+**Usage:**
+```
+/create_plan
+/create_plan thoughts/allison/tickets/eng_1234.md
+/create_plan think deeply about thoughts/allison/tickets/eng_1234.md
+```
+
+**What it does:**
+- Analyzes tickets, requirements, and existing code
+- Uses sub-agents to research current implementation patterns
+- Creates comprehensive implementation plans with phases and success criteria
+- Saves plans to `thoughts/shared/plans/`
+- Includes both automated and manual verification steps
+
+**Example:**
+```
+/create_plan thoughts/allison/tickets/eng_1478-parent-child-tracking.md
+```
+
+#### `/implement_plan`
+Implements approved technical plans from `thoughts/shared/plans/`.
+
+**Usage:**
+```
+/implement_plan thoughts/shared/plans/2025-01-08-ENG-1478-parent-child-tracking.md
+```
+
+**What it does:**
+- Reads and follows detailed implementation plans
+- Implements changes phase by phase
+- Updates plan checkboxes as work progresses
+- Verifies success criteria after each phase
+- Handles mismatches between plan and reality
+
+**Example:**
+```
+/implement_plan thoughts/shared/plans/2025-01-08-ENG-1478-parent-child-tracking.md
+```
+
+### How Slash Commands Work with MCP
+
+These slash commands are designed to work seamlessly with the subagent MCP server:
+
+1. **Automatic Agent Selection**: Commands automatically choose the right specialized agents for each task
+2. **Parallel Processing**: Multiple agents work simultaneously for faster results
+3. **Context Preservation**: Research findings are saved to the `thoughts/` directory for future reference
+4. **Integration**: Commands use the same MCP tools (`codebase_analyzer`, `codebase_locator`, etc.) that are available in regular Cursor conversations
+
+### Command Workflow
+
+**Research → Plan → Implement:**
+1. Use `/research_codebase` to understand complex systems
+2. Use `/create_plan` to create detailed implementation plans
+3. Use `/implement_plan` to execute the plans systematically
+
+This workflow ensures thorough analysis, careful planning, and systematic implementation of complex features.
+
 ### 1. Build the Server
 
 First, ensure the server is built:

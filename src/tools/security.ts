@@ -6,12 +6,14 @@ export async function isSafePath(basePath: string, targetPath: string): Promise<
   const resolvedTargetPath = path.resolve(targetPath);
 
   if (!resolvedTargetPath.startsWith(resolvedBasePath)) {
+    console.error(`[DEBUG] SECURITY: Path outside base directory - Base: ${resolvedBasePath}, Target: ${resolvedTargetPath}`);
     return false;
   }
 
   try {
     await fs.access(resolvedTargetPath);
-  } catch {
+  } catch (error) {
+    console.error(`[DEBUG] SECURITY: Path does not exist or no access - ${resolvedTargetPath}, Error: ${error}`);
     return false;
   }
 

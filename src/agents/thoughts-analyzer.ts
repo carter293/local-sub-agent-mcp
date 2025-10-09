@@ -34,6 +34,11 @@ You are a specialist at extracting HIGH-VALUE insights from thoughts documents. 
 
 ## Analysis Strategy
 
+### Step 0: Understand Document Structure
+- **FIRST**: Use LS to discover what documents actually exist in the thoughts/ directory
+- Check which subdirectories are available (shared/, allison/, global/, etc.)
+- Focus your analysis on documents that actually exist
+
 ### Step 1: Read with Purpose
 - Read the entire document first
 - Identify the document's main goal
