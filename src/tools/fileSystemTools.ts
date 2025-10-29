@@ -104,6 +104,7 @@ export function createFileSystemTools(projectPath: string) {
         );
         return { files: filteredEntries };
       } catch (error) {
+        console.error(`[DEBUG] LS failed for directory: ${directory}`, error);
         return {
           error: `Failed to list directory for params: directory="${directory}"`,
           rawError: JSON.stringify(error),
@@ -134,6 +135,7 @@ export function createFileSystemTools(projectPath: string) {
           const content = await fs.readFile(targetPath, "utf-8");
           return { content };
         } catch (error) {
+          console.error(`[DEBUG] READFILE failed for filePath: ${filePath}`, error);
           return {
             error: `Failed to read file for params: filePath="${filePath}"`,
             rawError: JSON.stringify(error),
@@ -168,6 +170,7 @@ export function createFileSystemTools(projectPath: string) {
           const selectedLines = lines.slice(startLine - 1, endLine);
           return { content: selectedLines.join("\n") };
         } catch (error) {
+          console.error(`[DEBUG] READFILELINES failed for filePath: ${filePath}`, error);
           return {
             error: `Failed to read file lines for params: filePath="${filePath}", startLine="${startLine}", endLine="${endLine}"`,
             rawError: JSON.stringify(error),
@@ -239,6 +242,7 @@ export function createFileSystemTools(projectPath: string) {
           );
           return { matches: results };
         } catch (error) {
+          console.error(`[DEBUG] GREP failed for pattern: "${pattern}" in directory: ${directory}`, error);
           return {
             error: `Failed to grep for params: pattern="${pattern}", directory="${directory}", filePattern="${filePattern}"`,
             rawError: JSON.stringify(error),
@@ -289,6 +293,7 @@ export function createFileSystemTools(projectPath: string) {
           );
           return { files: filteredFiles };
         } catch (error) {
+          console.error(`[DEBUG] GLOB failed for pattern: "${pattern}" in directory: ${directory}`, error);
           return {
             error: `Failed to glob for params: pattern="${pattern}", directory="${directory}"`,
             rawError: JSON.stringify(error),

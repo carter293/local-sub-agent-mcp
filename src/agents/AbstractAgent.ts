@@ -26,14 +26,15 @@ export abstract class AbstractAgent {
   public async run(query: string): Promise<string> {
     const systemPromptText = await this.loadPrompt();
 
-    const { text } = await generateText({
+    const response = await generateText({
       model: openai('gpt-4.1'),
       // model: google('gemini-2.5-pro'),
       system: systemPromptText,
       prompt: query,
       tools: this.tools,
-      maxSteps: 25
+      maxSteps: 100
     });
-    return text;
+    console.error(`[DEBUG] Response: ${JSON.stringify(response)}`);
+    return response.text;
   }
 }

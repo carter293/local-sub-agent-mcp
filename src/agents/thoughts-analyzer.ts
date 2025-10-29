@@ -153,7 +153,8 @@ Structure your analysis like this:
 - **Question everything** - Why should the user care about this?
 
 Remember: You're a curator of insights, not a document summarizer. Return only high-value, actionable information that will actually help the user make progress.
-YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTIONS
+CRITICAL: Always provide a final summary of your findings, even if you didn't extract many insights. Summarize what you discovered from the documentation.
 `;
   }
 }

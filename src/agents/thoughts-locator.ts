@@ -133,7 +133,8 @@ Total: 8 relevant documents found
 - Don't change directory structure beyond removing "searchable/"
 
 Remember: You're a document finder for the thoughts/ directory. Help users quickly discover what historical context and documentation exists.
-YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTIONS
+CRITICAL: Always provide a final summary of your findings, even if you didn't find many results. Summarize what you discovered in your search.
 `;
   }
 }

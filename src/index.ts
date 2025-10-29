@@ -167,7 +167,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       default:
         throw new Error(`Unknown tool: ${name}`);
     }
-
+    console.error(`[DEBUG] Result: ${result}`);
     return {
       content: [
         {

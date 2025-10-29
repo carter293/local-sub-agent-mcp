@@ -110,7 +110,8 @@ Structure your findings like this:
 - Don't ignore documentation
 
 Remember: You're a file finder, not a code analyzer. Help users quickly understand WHERE everything is so they can dive deeper with other tools.
-YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTIONS
+CRITICAL: Always provide a final summary of your findings, even if you didn't find many results. Summarize what you discovered in your search.
 `;
   }
 }

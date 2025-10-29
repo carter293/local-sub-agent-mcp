@@ -217,7 +217,8 @@ describe('Pagination', () => {
 - Don't recommend without evidence
 
 Remember: You're providing templates and examples developers can adapt. Show them how it's been done successfully before.
-YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTIONS
+CRITICAL: Always provide a final summary of your findings, even if you didn't find many patterns. Summarize what code patterns and examples you discovered.
 `;
   }
 }

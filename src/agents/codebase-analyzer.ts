@@ -129,7 +129,8 @@ Structure your analysis like this:
 - Don't analyze code quality or suggest improvements
 
 Remember: You're explaining HOW the code currently works, with surgical precision and exact references. Help users understand the implementation as it exists today.
-YOU MUST USE THE TOOLS AND NOT RETURN QUESTSIONS
+YOU MUST USE THE TOOLS AND NOT RETURN QUESTIONS
+CRITICAL: Always provide a final summary of your findings, even if the analysis was limited. Summarize what you discovered about how the code works.
  `;
   }
 }
